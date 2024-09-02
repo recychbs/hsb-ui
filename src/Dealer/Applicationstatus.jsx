@@ -27,7 +27,7 @@ const [showExtraDataInput, setShowExtraDataInput] = useState(false);
   // const [data, setData] = useState([]);
 
   // useEffect(() => {
-  //   fetch('http://localhost:8000/FetchStatusActive/')
+  //   fetch('https://recychbs.pythonanywhere.com/FetchStatusActive/')
   //     .then(response => response.json())
   //     .then(data =>{ 
   //       current_status = data[0].application_status;
@@ -64,7 +64,7 @@ const [showExtraDataInput, setShowExtraDataInput] = useState(false);
     // Fetch status from Django when the component loads
     const fetchStatus = async () => {
       try {
-        const response = await fetch('http://localhost:8000/FetchStatusActive/',{
+        const response = await fetch('https://recychbs.pythonanywhere.com/FetchStatusActive/',{
         credentials: 'include', // Ensures cookies are sent
         'X-CSRFToken':csrfToken
         }); // Django API endpoint

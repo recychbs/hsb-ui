@@ -24,7 +24,7 @@ function Todayscrap() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:8000/fetch/')
+    fetch('https://recychbs.pythonanywhere.com/fetch/')
       .then(response => response.json())
       .then(data =>{ 
         setData(data);

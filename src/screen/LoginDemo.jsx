@@ -78,7 +78,7 @@ console.log("Its working");
     
 
     
-    fetch('http://localhost:8000/login-form/', {
+    fetch('https://recychbs.pythonanywhere.com/login-form/', {
         method: 'POST',
         credentials: 'include', // Ensures cookies are sent
         headers: {

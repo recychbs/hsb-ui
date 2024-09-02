@@ -147,7 +147,7 @@ const handleSubmit = async (e) => {
   }
 
   try {
-    const response = await fetch('http://localhost:8000/UpdateScrap/', {
+    const response = await fetch('https://recychbs.pythonanywhere.com/UpdateScrap/', {
       method: 'POST',
       body: uploadFile,
       headers: {

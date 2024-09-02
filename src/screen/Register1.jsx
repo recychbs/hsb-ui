@@ -83,7 +83,7 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
  
-  fetch('http://localhost:8000/register-form/', {
+  fetch('https://recychbs.pythonanywhere.com/register-form/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

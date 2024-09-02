@@ -2,6 +2,7 @@ import React from 'react';
 import Headerdealer from '../component/Headerdealer';
 
 const Dealernotification = () => {
+  console.log("nanda anumolu")
   const notifications = [
     { head: "dealer 1", title: "comment", message: "your order" },
     { head: "dealer 2", title: "comment", message: "your order" },

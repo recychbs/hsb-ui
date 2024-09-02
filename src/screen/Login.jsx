@@ -56,7 +56,7 @@ const Login = () => {
     setError("");
     setStatus("");
 
-    fetch("http://localhost:8000/login-form/", {
+    fetch("https://recychbs.pythonanywhere.com/login-form/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
