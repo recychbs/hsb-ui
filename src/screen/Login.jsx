@@ -91,7 +91,7 @@ console.log("Its working");
             if (activeLogin === "user") {
               navigator('/Homeuser');
             } else if (activeLogin === "dealer") {
-              navigator('/Applicationstatus'); 
+              navigator('/Dealerdetails'); 
             }
           });
         } else {
