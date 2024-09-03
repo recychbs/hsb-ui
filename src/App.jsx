@@ -100,7 +100,7 @@ function App() {
         {/* <Route path='/' element={<Trail/>}/> */}
         <Route path='/' element={<LoginDemo/>}/>
         <Route path='/Login' element={<Login/>}/>
-        <Route path='/Register1' element={<Register1/>}/>
+        <Route path='Register1' element={<Register1/>}/>
         <Route path='/Success' element={<Success/>}/>
         <Route path='/Forgotpassword' element={<Forgotpassword/>}/>
         <Route path='/Notification' element={<Notification/>}/>
