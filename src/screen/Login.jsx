@@ -12,9 +12,9 @@ const Login = () => {
     username: "",
     password: "",
   });
-  const [message, setMessage] = useState("");
-  const [error, setError] = useState("");
-  const [status, setStatus] = useState("");
+  const [message, setMessage] = useState('');
+  const [error, setError] = useState('');
+  const [status, setStatus] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -31,11 +31,11 @@ const Login = () => {
   const navigator = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Its working");
+console.log("Its working");
 
-    let valid = true;
-    let newErrors = { username: "", password: "" };
-    // Validation
+  let valid = true;
+  let newErrors = { username: "", password: "" };
+     // Validation
     if (formData.username.trim() === "") {
       newErrors.username = "Username is required";
       valid = false;
@@ -52,43 +52,65 @@ const Login = () => {
       setErrors(newErrors);
       return;
     }
-    setMessage("");
-    setError("");
-    setStatus("");
+    setMessage('')
+    setError('')
+    setStatus('')
 
-    fetch("https://recychbs.pythonanywhere.com/login-form/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    })
-      .then((response) => {
+    const csrfToken = getCookie('csrftoken'); // Function to get the CSRF token
+
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === `${name}=`) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    
+    fetch('https://django-djreact-app-d5af3d4e3559.herokuapp.com/login-form/', {
+        method: 'POST',
+        credentials: 'include', // Ensures cookies are sent
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRFToken': csrfToken
+        },
+        body: JSON.stringify(formData),
+      })
+      .then(response => {
         if (response.ok) {
-          return response.json().then((data) => {
+          return response.json().then(data => {
             setMessage(data.message);
             setStatus(data.status);
-            // Navigate based on login type
+             // Navigate based on login type
             if (activeLogin === "user") {
-              navigator("/Homeuser");
+              navigator('/Homeuser');
             } else if (activeLogin === "dealer") {
-              navigator("/Dealerdetails");
+              navigator('/Applicationstatus'); 
             }
           });
         } else {
-          return response.json().then((data) => {
+          return response.json().then(data => {
             setError(data.error);
-            if (activeLogin === "user") {
-              navigator("/");
-            } else if (activeLogin === "dealer") {
-              navigator("/");
-            }
+                  if (activeLogin === "user") {
+                      navigator('/');
+                  } else if (activeLogin === "dealer") {
+                      navigator('/'); 
+                  }
           });
         }
       })
-      .catch((error) => {
+      .catch(error => {
         console.log("Error:", error);
       });
+  
+    
+     
   };
 
   return (
@@ -105,22 +127,13 @@ const Login = () => {
             <div style={{ display: "flex" }}>
               <div
                 onClick={() => setActiveLogin("user")}
-                style={{
-                  cursor: "pointer",
-                  marginRight: "50px",
-                  fontWeight: activeLogin === "user" ? "900" : "700",
-                  fontSize: "20px",
-                }}
+                style={{ cursor: "pointer", marginRight: "50px", fontWeight: activeLogin === "user" ? "900" : "700", fontSize: "20px" }}
               >
                 <p>User Login</p>
               </div>
               <div
                 onClick={() => setActiveLogin("dealer")}
-                style={{
-                  cursor: "pointer",
-                  fontWeight: activeLogin === "dealer" ? "900" : "700",
-                  fontSize: "20px",
-                }}
+                style={{ cursor: "pointer", fontWeight: activeLogin === "dealer" ? "900" : "700", fontSize: "20px" }}
               >
                 <p>Dealer Login</p>
               </div>
@@ -128,7 +141,7 @@ const Login = () => {
             {activeLogin === "user" && (
               <div className="login-box foruser">
                 <h2 className="login-heading">LOGIN</h2>
-                <form>
+                <form onSubmit={handleSubmit}>
                   <label className="login-label">
                     Username:
                     <input
@@ -138,11 +151,8 @@ const Login = () => {
                       onChange={handleChange}
                       className="login-input"
                       style={{ borderColor: errors.username ? "red" : "" }}
-                      autoComplete="off"
                     />
-                    {errors.username && (
-                      <div className="error-text">{errors.username}</div>
-                    )}
+                    {errors.username && <div className="error-text">{errors.username}</div>}
                   </label>
                   <label className="login-label">
                     Password:
@@ -153,24 +163,17 @@ const Login = () => {
                       onChange={handleChange}
                       className="login-input"
                       style={{ borderColor: errors.password ? "red" : "" }}
-                      autoComplete="off"
                     />
-                    {errors.password && (
-                      <div className="error-text">{errors.password}</div>
-                    )}
+                    {errors.password && <div className="error-text">{errors.password}</div>}
                   </label>
-                  <a
-                    href="/Forgotpassword"
-                    style={{ textDecoration: "none" }}
-                    className="forgot-password-link"
-                  >
+                  <a href="/Forgotpassword" style={{ textDecoration: "none" }} className="forgot-password-link">
                     Forgot Password?
                   </a>
-                  {/* Display success message */}
-                  {message && <p style={{ color: "green" }}>{message}</p>}
+                {/* Display success message */}
+                {message && <p style={{ color: 'green' }}>{message}</p>}
 
-                  {/* Display error message */}
-                  {error && <p style={{ color: "red" }}>{error}</p>}
+{/* Display error message */}
+{error && <p style={{ color: 'red' }}>{error}</p>}
 
                   <button
                     type="submit"
@@ -209,11 +212,8 @@ const Login = () => {
                       onChange={handleChange}
                       className="login-input"
                       style={{ borderColor: errors.username ? "red" : "" }}
-                      autoComplete="off"
                     />
-                    {errors.username && (
-                      <div className="error-text">{errors.username}</div>
-                    )}
+                    {errors.username && <div className="error-text">{errors.username}</div>}
                   </label>
                   <label className="login-label">
                     Password:
@@ -224,26 +224,20 @@ const Login = () => {
                       onChange={handleChange}
                       className="login-input"
                       style={{ borderColor: errors.password ? "red" : "" }}
-                      autoComplete="off"
                     />
-                    {errors.password && (
-                      <div className="error-text">{errors.password}</div>
-                    )}
+                    {errors.password && <div className="error-text">{errors.password}</div>}
                   </label>
-                  <a
-                    href="/Forgotpassword"
-                    style={{ textDecoration: "none" }}
-                    className="forgot-password-link"
-                  >
+                  <a href="/Forgotpassword" style={{ textDecoration: "none" }} className="forgot-password-link">
                     Forgot Password?
                   </a>
 
-                  {/* Display success message */}
-                  {message && <p style={{ color: "green" }}>{message}</p>}
 
-                  {/* Display error message */}
-                  {error && <p style={{ color: "red" }}>{error}</p>}
+                {/* Display success message */}
+                {message && <p style={{ color: 'green' }}>{message}</p>}
 
+{/* Display error message */}
+{error && <p style={{ color: 'red' }}>{error}</p>}
+                  
                   <button
                     type="submit"
                     style={{ textDecoration: "none" }}
@@ -262,7 +256,7 @@ const Login = () => {
                   }}
                 >
                   New User?{" "}
-                  <a href="Register1" style={{ textDecoration: "none" }}>
+                  <a href="/Register1" style={{ textDecoration: "none" }}>
                     Register
                   </a>
                 </p>
