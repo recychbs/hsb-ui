@@ -185,7 +185,7 @@ const handleFileChange = (fileType) => (e) => {
 }
 
   try {
-    const response = await fetch('https://django-djreact-app-d5af3d4e3559.herokuapp.com/dealer_details/', {
+    const response = await fetch('- https://recychbs.pythonanywhere.com/dealer_details/', {
       method: 'POST',
       body: uploadFile,
       credentials: 'include', // Ensures cookies are sent
