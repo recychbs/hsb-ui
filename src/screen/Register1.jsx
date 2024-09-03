@@ -367,13 +367,13 @@ const Register = () => {
                     style={{ fontSize: "12px", marginLeft: "8 px" }}
                   >
                     I agree to the{" "}
-                    <a
-                      href="/terms"
+                    <Link
+                      to="/terms"
                       target="_blank"
                       className="text-decoration-none"
                     >
                       Terms and Conditions
-                    </a>
+                    </Link>
                   </label>
                 </div>
                  {/* Display success message */}
@@ -398,13 +398,13 @@ const Register = () => {
                   style={{ fontSize: "12px", marginTop: "10px" }}
                 >
                   Already have an account{" "}
-                  <a
-                    href="/"
+                  <Link
+                    to="/"
                     target="_blank"
                     className="logintxt text-decoration-none"
                   >
                     LOGIN
-                  </a>
+                  </Link>
                 </label>
               </form>
             )}
