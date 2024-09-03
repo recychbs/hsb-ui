@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import logo from "../assets/image/logonew.png";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
+
 
 const LoginDemo = () => {
   const [activeLogin, setActiveLogin] = useState("user");
@@ -261,9 +262,9 @@ console.log("Its working");
                   }}
                 >
                   New User?{" "}
-                  <a href="/Register1" style={{ textDecoration: "none" }}>
+                  <Link to="/Register1" style={{ textDecoration: "none" }}>
                     Register
-                  </a>
+                  </Link>
                 </p>
               </div>
             )}
