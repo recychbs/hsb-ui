@@ -261,7 +261,7 @@ console.log("Its working");
                   }}
                 >
                   New User?{" "}
-                  <a href="/Register1" style={{ textDecoration: "none" }}>
+                  <a href="Register1" style={{ textDecoration: "none" }}>
                     Register
                   </a>
                 </p>
