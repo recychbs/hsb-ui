@@ -98,8 +98,8 @@ function App() {
         <Routes>
         {/* <Route path='/' element={<Demo/>}/> */}
         {/* <Route path='/' element={<Trail/>}/> */}
-        <Route path='/' element={<LoginDemo/>}/>
-        <Route path='/Login' element={<Login/>}/>
+        <Route path='/Login' element={<LoginDemo/>}/>
+        <Route path='/' element={<Login/>}/>
         <Route path='/Register1' element={<Register1/>}/>
         <Route path='/Success' element={<Success/>}/>
         <Route path='/Forgotpassword' element={<Forgotpassword/>}/>

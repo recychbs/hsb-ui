@@ -172,9 +172,9 @@ console.log("Its working");
                     />
                     {errors.password && <div className="error-text">{errors.password}</div>}
                   </label>
-                  <a href="/Forgotpassword" style={{ textDecoration: "none" }} className="forgot-password-link">
+                  <Link to="/Forgotpassword" style={{ textDecoration: "none" }} className="forgot-password-link">
                     Forgot Password?
-                  </a>
+                  </Link>
                 {/* Display success message */}
                 {message && <p style={{ color: 'green' }}>{message}</p>}
 
@@ -199,9 +199,9 @@ console.log("Its working");
                   }}
                 >
                   New User?{" "}
-                  <a href="" style={{ textDecoration: "none" }}>
+                  <Link to="" style={{ textDecoration: "none" }}>
                     Register
-                  </a>
+                  </Link>
                 </p>
               </div>
             )}
@@ -233,9 +233,9 @@ console.log("Its working");
                     />
                     {errors.password && <div className="error-text">{errors.password}</div>}
                   </label>
-                  <a href="/Forgotpassword" style={{ textDecoration: "none" }} className="forgot-password-link">
+                  <Link to="/Forgotpassword" style={{ textDecoration: "none" }} className="forgot-password-link">
                     Forgot Password?
-                  </a>
+                  </Link>
 
 
                 {/* Display success message */}

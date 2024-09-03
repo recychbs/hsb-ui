@@ -159,13 +159,13 @@ const Login = () => {
                       <div className="error-text">{errors.password}</div>
                     )}
                   </label>
-                  <a
-                    href="/Forgotpassword"
+                  <Link
+                    to="/Forgotpassword"
                     style={{ textDecoration: "none" }}
                     className="forgot-password-link"
                   >
                     Forgot Password?
-                  </a>
+                  </Link>
                   {/* Display success message */}
                   {message && <p style={{ color: "green" }}>{message}</p>}
 
@@ -190,9 +190,9 @@ const Login = () => {
                   }}
                 >
                   New User?{" "}
-                  <a href="" style={{ textDecoration: "none" }}>
+                  <Link to="" style={{ textDecoration: "none" }}>
                     Register
-                  </a>
+                  </Link>
                 </p>
               </div>
             )}
@@ -230,13 +230,13 @@ const Login = () => {
                       <div className="error-text">{errors.password}</div>
                     )}
                   </label>
-                  <a
-                    href="/Forgotpassword"
+                  <Link
+                    to="/Forgotpassword"
                     style={{ textDecoration: "none" }}
                     className="forgot-password-link"
                   >
                     Forgot Password?
-                  </a>
+                  </Link>
 
                   {/* Display success message */}
                   {message && <p style={{ color: "green" }}>{message}</p>}
@@ -262,9 +262,9 @@ const Login = () => {
                   }}
                 >
                   New User?{" "}
-                  <a href="Register1" style={{ textDecoration: "none" }}>
+                  <Link to="Register1" style={{ textDecoration: "none" }}>
                     Register
-                  </a>
+                  </Link>
                 </p>
               </div>
             )}
