@@ -398,13 +398,13 @@ const Register = () => {
                   style={{ fontSize: "12px", marginTop: "10px" }}
                 >
                   Already have an account{" "}
-                  <a
-                    href="/"
+                  <Link
+                    to="/"
                     target="_blank"
                     className="logintxt text-decoration-none"
                   >
                     LOGIN
-                  </a>
+                  </Link>
                 </label>
               </form>
             )}
